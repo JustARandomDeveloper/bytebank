@@ -6,7 +6,6 @@ void main() {
 }
 
 class BytebankApp extends StatelessWidget {
-  // This widget is the root of your application.
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
