@@ -4,21 +4,22 @@ import 'package:bytebank/screens/contact_form.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatefulWidget {
+
   @override
-  State<ContactsList> createState() => _ContactsListState();
+  _ContactsListState createState() => _ContactsListState();
 }
 
 class _ContactsListState extends State<ContactsList> {
   final ContactDao _dao = ContactDao();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contacts'),
+        title: Text('Transfer'),
       ),
       body: FutureBuilder<List<Contact>>(
-        // ignore: deprecated_member_use
-        initialData: List(),
+        initialData: [],
         future: _dao.findAll(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
@@ -54,12 +55,11 @@ class _ContactsListState extends State<ContactsList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context)
-          .push(
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => ContactForm(),
             ),
-          );
+          ).then((value) => setState(() {}));
         },
         child: Icon(
           Icons.add,
