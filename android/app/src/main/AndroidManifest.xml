@@ -10,6 +10,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="bytebank"
         android:icon="@mipmap/ic_launcher">
+        <!-- Required to fetch data from the internet. -->
+        <uses-permission android:name="android.permission.INTERNET" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
